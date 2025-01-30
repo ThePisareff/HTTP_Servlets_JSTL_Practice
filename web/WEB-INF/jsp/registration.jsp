@@ -6,7 +6,8 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="/registration" method="post" enctype="multipart/form-data">
+<img src="/images/pageImages/registration.gif" alt="REGISTRATION">
+<form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
     <label for="username">Name: <input type="text" name="name" id="username"> </label><br>
     <label>Birthday: <input type="date" name="birthday"> </label><br>
     <label>Email: <input type="text" name="email"> </label><br>

@@ -11,7 +11,7 @@ public class UserCreateMapper implements Mapper<UserCreateDto,User> {
     private static final UserCreateMapper INSTANCE = new UserCreateMapper();
     private static final String IMAGE_FOLDER = "users/";
 
-    private UserCreateMapper(){};
+    private UserCreateMapper(){}
 
     public static UserCreateMapper getInstance(){return INSTANCE;}
 
