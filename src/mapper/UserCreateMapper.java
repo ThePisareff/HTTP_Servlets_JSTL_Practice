@@ -6,9 +6,10 @@ import entity.Role;
 import entity.User;
 import util.LocalDateFormatter;
 
-public class UserCreateMapper implements Mapper<UserCreateDto, User> {
+public class UserCreateMapper implements Mapper<UserCreateDto,User> {
 
     private static final UserCreateMapper INSTANCE = new UserCreateMapper();
+    private static final String IMAGE_FOLDER = "users/";
 
     private UserCreateMapper(){};
 
@@ -19,6 +20,7 @@ public class UserCreateMapper implements Mapper<UserCreateDto, User> {
         return User.builder()
                 .name(object.getName())
                 .email(object.getEmail())
+                .image(IMAGE_FOLDER + object.getImage().getSubmittedFileName())
                 .password(object.getPassword())
                 .gender(Gender.valueOf(object.getGender()))
                 .role(Role.valueOf(object.getRole()))

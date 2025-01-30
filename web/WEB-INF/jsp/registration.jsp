@@ -6,11 +6,12 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="/registration" method="post">
+<form action="/registration" method="post" enctype="multipart/form-data">
     <label for="username">Name: <input type="text" name="name" id="username"> </label><br>
     <label>Birthday: <input type="date" name="birthday"> </label><br>
     <label>Email: <input type="text" name="email"> </label><br>
     <label>Password: <input type="password" name="password"> </label><br>
+    <label>Image : <input type="file" name="image"> </label><br>
     <select name="role">
         <c:forEach var="role" items="${requestScope.roles}">
             <option value="${role}">${fn:toLowerCase(role)}</option>

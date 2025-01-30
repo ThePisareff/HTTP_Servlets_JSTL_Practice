@@ -5,15 +5,18 @@ import entity.Gender;
 import entity.Role;
 import exception.ValidationException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import service.UserService;
 
 import java.io.IOException;
 import java.util.List;
 
+@MultipartConfig(fileSizeThreshold = 1024*1024) //Для использования multipart/form-data
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
 
@@ -28,10 +31,12 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         var createUserDto = UserCreateDto.builder()
                 .name(req.getParameter("name"))
                 .birthday(req.getParameter("birthday"))
                 .email(req.getParameter("email"))
+                .image(req.getPart("image"))
                 .password(req.getParameter("password"))
                 .role(req.getParameter("role"))
                 .gender(req.getParameter("gender"))
