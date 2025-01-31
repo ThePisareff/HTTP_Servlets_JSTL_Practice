@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.List;
 
 @MultipartConfig(fileSizeThreshold = 1024*1024) //Для использования multipart/form-data
-@WebServlet(value = "/registration", name = "RegistrationServlet")
+@WebServlet(value = "/registration")
 public class RegistrationServlet extends HttpServlet {
 
     private static final UserService userService = UserService.getInstance();
