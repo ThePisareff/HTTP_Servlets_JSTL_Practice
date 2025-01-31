@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebFilter("/admin")
+@WebFilter("/content")
 public class UnsafeFilter implements Filter {
 
     @Override
